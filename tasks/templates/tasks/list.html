@@ -46,17 +46,25 @@
 	}
 
 </style>
-<h1 style="text-align: center; color: #fb5607; font-size: 125px;        text-shadow: -10px 0 black, 0 10px black, 10px 0 black, 0 -10px black;
 
-"><b>TO DO LIST</b></h1>
-<div  class="center-column">
-	<b>{{VERSION}}</b>
-	<form method="POST" action="/">
-		{% csrf_token %}
-		{{form.title}}
-		<input class="btn btn-info" type="submit" name="Create Task">
-	</form>
+<h1 style="text-align: center; color: #fb5607; font-size: 125px; 
+text-shadow: -10px 0 black, 0 10px black, 10px 0 black, 0 -10px black;">
+<b>TO DO LIST</b></h1>
+	<div  class="center-column">
+		<b>{{VERSION}}</b>
 
+		<form method="POST" action="/" name="tmdb_form">
+			{% csrf_token %}
+			<button class="btn btn-info"name="button_netflix" action="/">Netflix</button>
+			<button class="btn btn-info"name="button_AP" action="/">AmazonPrime</button>
+			<button class="btn btn-info"name="button_Apple" action="/">Apple</button>
+		</form>	
+
+		<form method="POST" action="/">
+			{% csrf_token %}
+			{{form.title}}
+			<input class="btn btn-info" type="submit" name="Create Task">
+		</form>
 	<div class="todo-list">
 	{% for task in tasks %}
 		<div class="item-row">
@@ -67,7 +75,6 @@
 			{% else %}
 			<span>{{task}}</span>
 			{% endif %}
-
 		</div>
 	{% endfor %}
 	</div>
