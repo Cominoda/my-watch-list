@@ -1,0 +1,20 @@
+
+
+pipenv run ruff check .
+
+coverage : mesure toutes les lignes de code exécutées pendant l’exécution de tes tests, 
+        peu importe où elles se trouvent.
+        l’objectif est de révéler les parties de ton code qui ne sont pas testées
+
+Pour les tests :
+pipenv install --dev coverage
+pipenv run coverage run manage.py test
+pipenv run coverage report
+
+
+pipenv install pyyaml
+
+pip install fpdf
+
+pip install selenium
+pip install webdriver-manager

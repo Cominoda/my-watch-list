@@ -1,0 +1,85 @@
+
+- id: 01
+  nom: "Test model task"
+  type: "auto"
+  description: "Vérifier que la méthode __str__ de Task renvoie le titre."
+
+- id: 2
+  nom: "Accès à la page d’accueil"
+  type: "auto"
+  description: "Vérifier que GET / renvoie un status 200 et le bon template."
+
+- id: 03
+  nom: "Création d’une tâche"
+  type: "auto"
+  description: ""
+
+- id: 04
+  nom: "Accès au formulaire de mise à jour"
+  type: "auto"
+  description: "GET /update_task/<id>/ renvoie 200 et affiche le formulaire."
+
+- id: 5
+  nom: "Mise à jour valide d’une tâche"
+  type: "auto"
+  description: "Poster un titre et complete=True met à jour la tâche et redirige."
+
+- id: 06
+  nom: "Accès à la page de suppression"
+  type: "auto"
+  description: "GET /delete_task/<id>/ renvoie 200 et affiche la confirmation."
+
+- id: 7
+  nom: "Suppression d’une tâche"
+  type: "auto"
+  description: "POST /delete_task/<id>/ supprime la tâche et redirige."
+
+- id: 08
+  nom: "Import du dataset"
+  type: "auto"
+  description: "loaddata dataset insère au moins 5 tâches dont 'Acheter du pain'."
+
+- id: 10
+  nom: "Affichage de la liste des tâches"
+  type: "manuel"
+  description: "Vérifier l’affichage des tâches, ou d’un message spécial s’il n’y en a aucune."
+
+- id: 11
+  nom: "Création visuelle d’une tâche"
+  type: "manuel"
+  description: "Créer une tâche via l’interface, vérifier qu’elle apparaît, tester le cas vide."
+
+- id: 12
+  nom: "Mise à jour visuelle"
+  type: "manuel"
+  description: "Modifier une tâche via l’UI, vérifier que les champs sont préremplis et que la mise à jour fonctionne."
+
+- id: 13
+  nom: "Suppression visuelle"
+  type: "manuel"
+  description: "Supprimer une tâche via l’UI, vérifier la confirmation et la disparition dans la liste."
+
+- id: 14
+  nom: "Affichage des tâches complètes"
+  type: "manuel"
+  description: "Vérifier le rendu visuel d’une tâche complétée (style, barré, couleur…)."
+
+- id: 15
+  nom: "Affichage du dataset importé"
+  type: "manuel"
+  description: "Après import du dataset, vérifier la présence visuelle des tâches du dataset."
+
+- id: TC016
+  nom: "Créer 10 tâches, supprimer 10 tâches"
+  type: "auto-selenium"
+  description: 
+    "Se connecter manuellement à l'application, compter le nombre de tâches
+    existantes, créer 10 nouvelles tâches, supprimer ces 10 tâches, puis vérifier
+    que le nombre total de tâches est revenu à la valeur initiale."
+
+- id: TC017
+  nom: "Créer 2 tâches, supprimer la 2ème, vérifier la 1ère"
+  type: "auto-selenium"
+  description: 
+    "Se connecter manuellement à l'application, créer deux tâches distinctes,
+    supprimer la deuxième tâche créée, puis vérifier que la première tâche est toujours présente."

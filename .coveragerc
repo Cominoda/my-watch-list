@@ -1,0 +1,13 @@
+[run]
+
+source=tasks
+
+# Liste des fichiers/dossiers à exclure
+omit =
+    */test_runner.py
+    */manage.py
+    */settings.py
+    */migrations/*
+    */admin.py
+    */urls.py
+    */__init__.py
