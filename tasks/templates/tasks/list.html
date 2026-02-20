@@ -46,13 +46,24 @@
 	}
 
 </style>
-
+<nav style="background-color: #fff">
+	<a href="{% url 'list'%}">Accueil</a>
+	{% if  request.user.is_authenticated %}
+	<a href="{% url 'accounts:logout'%}">Deconnexion</a> 
+	{% else %}
+	<a href="{% url 'accounts:fc_login'%}">Connexion France connect</a> 
+	<a href="{% url 'accounts:login'%}">Connexion</a> 
+	<a href="{% url 'accounts:signup'%}">Inscription</a>
+	<a href="{% url 'accounts:login'%}">Se connecter avec FranceConnect</a> 
+	{% endif %}
+</nav>
 <h1 style="text-align: center; color: #fb5607; font-size: 125px; 
 text-shadow: -10px 0 black, 0 10px black, 10px 0 black, 0 -10px black;">
 <b>TO DO LIST</b></h1>
-	<div  class="center-column">
-		<b>{{VERSION}}</b>
+<div  class="center-column">
+	<b>{{VERSION}}</b>
 
+	{% if request.user.is_authenticated %}
 		<form method="POST" action="/" name="tmdb_form">
 			{% csrf_token %}
 			<button class="btn btn-info"name="button_netflix" action="/">Netflix</button>
@@ -65,17 +76,18 @@ text-shadow: -10px 0 black, 0 10px black, 10px 0 black, 0 -10px black;">
 			{{form.title}}
 			<input class="btn btn-info" type="submit" name="Create Task">
 		</form>
-	<div class="todo-list">
-	{% for task in tasks %}
-		<div class="item-row">
-			<a class="btn btn-sm btn-info" href = "{% url 'update_task' task.id %}">Update</a>
-			<a class="btn btn-sm btn-danger" href = "{% url 'delete' task.id %}">Delete</a>
-			{% if task.complete == True %}
-			<strike>{{task}}</strike>
-			{% else %}
-			<span>{{task}}</span>
-			{% endif %}
+		<div class="todo-list">
+			{% for task in tasks %}
+				<div class="item-row">
+					<a class="btn btn-sm btn-info" href = "{% url 'update_task' task.id %}">Update</a>
+					<a class="btn btn-sm btn-danger" href = "{% url 'delete' task.id %}">Delete</a>
+					{% if task.complete == True %}
+					<strike>{{task}}</strike>
+					{% else %}
+					<span>{{task}}</span>
+					{% endif %}
+				</div>
+			{% endfor %}
 		</div>
-	{% endfor %}
-	</div>
+	{% endif %}
 </div>
